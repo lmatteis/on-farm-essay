@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <base target="_top">
+
+    <title>Software for On Farm Conservation</title>
+
+    <!-- fonts -->
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400italic,400,700|Open+Sans:300,800' rel='stylesheet' type='text/css'>
+
+    <!-- style -->
+<style>
+* { margin:0; padding:0; }
+
+body {
+    background: #ffffff;
+    font: normal 13px/1.65 "PT Sans", "Helvetica", "Arial", sans-serif;
+    color: #696969;
+    width:100%;
+    text-align: left;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */ 
+/* header */
+.headerBackground {
+  position: absolute;
+  width: 100%;
+  height: 239px;
+  top: 0px;
+  background: #E2FFE0;
+  background: url(http://tutbase.com/tutorial/images/3d-easteregg/grass-background.png);
+  background-color: #00ecff;
+  background-position: bottom;
+  background-size:200px;
+  background-repeat: repeat-x;
+  
+-webkit-box-shadow: 0px -4px 30px rgba(50, 50, 50, 0.72);
+-moz-box-shadow:    0px -4px 30px rgba(50, 50, 50, 0.72);
+box-shadow:         0px -4px 30px rgba(50, 50, 50, 0.72);
+
+
+}
+.header {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+.header.chapter {
+  margin-top: 0px;
+}
+.header h1, .header h2{
+  color: #222;
+}
+.header h1{
+  font-weight: 800;
+  color: #2b3033;
+  font-size: 35px;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin-bottom: 10px;
+
+text-shadow: 0 1px 1px rgba(255, 255, 255, 0.86);
+  
+}
+.header h2 {
+  font-weight: 300;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #2b3033;
+}
+.header h3 {
+  font-weight: 100;
+  font-size: 12px;
+  color: #97a9b3;
+}
+.header h3 a {
+  color: #97a9b3;
+  text-decoration: none;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */ 
+/* body */
+
+.intro {
+    margin-top: 98px;
+    width: 840px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quoteCitation {
+    margin-top:-5px;
+    margin-bottom:29px;
+    font-size: 11px;
+    text-align: right;
+}
+
+.quoteCitation a {
+    color: #696969;
+    text-decoration: none;
+    font-style: italic;
+}
+
+.sidenote {
+    margin-top:4px;
+    margin-bottom:8px;
+    font-size: 11px;
+    line-height: 1.3;
+    color: #aaa;
+}
+
+span.sidenote {
+    position: absolute;
+    left: 440px;
+    width: 400px;
+}
+
+.spacer {
+    height: 10px;
+}
+
+.chapter {
+    margin-top: 40px;
+    width: 840px;
+    padding-top: 48px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chapterHeader  {
+    text-align: center;
+    position: absolute;
+    width: inherit;
+    height: 16px;
+    top: 0px;
+    border-bottom: 1px solid #ccc;
+}
+
+.chapterHeader span {
+    font: bold 25px "PT Sans", "Helvetica", "Arial", sans-serif; 
+    color: #222;
+    background-color: #fff;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.separator {
+    width: 100%;
+    height: 20px;
+    margin-top:30px;
+}
+
+.ladderIcon {
+    float:left;
+    margin-left:-11px;
+    margin-right:4px;
+    margin-top:4px;
+    margin-bottom:-2px;
+}
+
+.ifMouse {
+}
+
+.ifTouch {
+    display:none;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */ 
+/* backMatter */
+
+.backMatter {
+    width: 100%;
+    background: #222;
+    padding-bottom:1px;
+}
+
+.backMatter .separator {
+    position:relative;
+    top: -16px;
+}
+
+.backMatter .chapter {
+    margin-top: 18px;
+    padding-top: 0px;
+    font: normal 12px/1.65 "PT Sans", "Helvetica", "Arial", sans-serif;
+    color: #666;
+}
+
+.backMatter a {
+    color: #888;
+    text-decoration: none;
+}
+
+.backMatter a:hover {
+    color: #aaa;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */ 
+/* columns */
+
+.columnLeft {
+    width: 400px;
+    float: left;
+}
+
+.columnRight {
+    float: right;
+    width: 400px;
+}
+
+.columnFull {
+    width: inherit;
+    margin-bottom: 20px;
+}
+
+.columnLeft3 {
+    width: 250px;
+    float: left;
+}
+
+.columnMiddle3 {
+    margin-left:45px;
+    width: 250px;
+    float: left;
+}
+
+.columnRight3 {
+    float: right;
+    width: 250px;
+    overflow: hidden;
+}
+
+.endOfColumns {
+    clear: both;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */ 
+/* algorithm */
+
+.algorithm {
+    position:relative;
+    top:-8px;  /* negative margin-top breaks safari */
+    margin-bottom: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 14px;
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), to(#f2f2f2));
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #f2f2f2 100%);
+}
+
+.atTopOfChapter {
+    top:4px;
+    margin-bottom:22px;
+}
+
+.algorithmHeader {
+    position:relative;
+    font: bold 13px/1.5 "Helvetica", "Arial", sans-serif;
+    color: #333;
+}
+
+.algorithmLine {
+    position:relative;
+    margin-left: 14px;
+    font: normal 12px/1.4 "Helvetica", "Arial", sans-serif;
+    color: #666;
+}
+
+.arcLine {
+    position:relative;
+    font: bold 13px/1.5 "Helvetica", "Arial", sans-serif;
+    color: #333;
+    margin-top:10px;
+    margin-bottom:4px;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */ 
+/* perspectives */
+
+.perspectiveRoad {
+    -webkit-transform: scale(0.625);
+    -moz-transform: scale(0.625);
+    -o-transform: scale(0.625);
+    -ms-transform: scale(0.625);
+    -webkit-transform-origin: 0% 0%;
+    -moz-transform-origin: 0% 0%;
+    -o-transform-origin: 0% 0%;
+    -ms-transform-origin: 0% 0%;
+}
+
+.wildcards {
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 14px;
+    margin-bottom: 12px;
+    background-color: #f2f2f2;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), to(#f2f2f2));
+    background: -moz-linear-gradient(top, #FFFFFF 0%, #f2f2f2 100%);
+}
+
+.wildcard {
+    margin-left: 14px;
+    font: normal 12px/1.4 "Helvetica", "Arial", sans-serif;
+    color: #444;
+}
+
+.wildcard span {
+    color: #999;
+}
+
+.wildcard b {
+    font-family: "Courier New", "Courier", monospace;
+}
+
+.perspectiveCode {
+    border: 1px solid #eeeeee;
+    border-radius: 3px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 14px;
+    margin-bottom: 12px;
+    background-color: #fafafa;
+    color: #888;
+}
+
+.cube {
+    margin-left:50px;
+    margin-bottom:15px;
+}
+
+.swingEquationBox {
+    text-align:center;
+    margin-left:40px;
+    border: 1px solid #e2e2e2;
+    padding-top:34px;
+    padding-bottom:26px;
+    margin-bottom:10px;
+}
+
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */ 
+/* controls */
+
+.SliderLabel {
+    font: 10px "Helvetica", "Arial", sans-serif;
+    font-weight: bold;
+    color:#ccc;
+    text-align: center;
+}
+
+.PlotLabel {
+    font: 10px "Helvetica", "Arial", sans-serif;
+    font-weight: bold;
+    color:#bbb;
+    text-align: center;
+}
+
+.PlotLabelDark {
+    color:#555;
+}
+
+.LadderSweptArcUnbendedLabel {
+    font: 9px/1.0 "Helvetica", "Arial", sans-serif;
+    color:#aaa;
+    text-align: center;
+}
+
+.LadderTimePlotLabel {
+    font: 9px/1.0 "Helvetica", "Arial", sans-serif;
+    font-weight: bold;
+    color:#ccc;
+}
+
+.LadderTimeGridLabel {
+    font: 9px/1.0 "Helvetica", "Arial", sans-serif;
+    font-weight: bold;
+    color:#aaa;
+}
+
+.LadderSensorsLabel {
+    font: 9px/1.0 "Helvetica", "Arial", sans-serif;
+    font-weight: bold;
+    color:#aaa;
+    text-align: center;
+}
+
+.LadderReflectionLabel {
+    font: 9px/1.0 "Helvetica", "Arial", sans-serif;
+    font-weight: bold;
+    color:#777;
+    text-align: center;
+}
+
+.LadderActionLink {
+    color: #46f;
+    border-bottom: 1px dashed #46f;
+    cursor: pointer;
+}
+
+.LadderHeaderKeyboardHelpText {
+    font: 9px/1.0 "Helvetica", "Arial", sans-serif;
+    font-weight: normal;
+    text-align: center;
+    color:#aec4d2;
+}
+
+.LadderTimeGridDescription {
+    font: bold 13px/1.5 "Helvetica", "Arial", sans-serif;
+    color: #333;
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */ 
+/* animations */
+
+@-webkit-keyframes LadderHeaderBubbleBounce {
+ 
+  from { -webkit-transform: scale(0.99); }
+  to   { -webkit-transform: scale(1.01); }
+}
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */ 
+/* generic */
+
+p {
+    margin-bottom:12px;
+}
+
+pre {
+    margin-bottom:12px;
+}
+
+strong {
+    font-weight:bold;
+    color: #f00;
+}
+
+b {
+    font-weight:bold;
+    color: #000;
+}
+
+a { 
+    text-decoration:underline; 
+    color: #933; 
+    border:none;
+}
+
+a:hover {
+    text-decoration:underline;
+    color: #933;
+}
+
+img { 
+    border:none;
+}
+
+ul {
+    margin-left:22px;
+    margin-bottom: 12px;
+}
+
+ol {
+    margin-left:22px;
+    margin-bottom: 12px;
+}
+
+li {
+    margin-bottom:8px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- header -->
+<div class="headerBackground"></div>
+<div class="header chapter">
+    <h1>Software for <br>On Farm Conservation</h1>
+    <h2>Helping Small Farm Holders with Technology</h1>
+    <h3><a class="selflink" href="http://lucaa.org">Luca Matteis</a> / November, 2012</h3>
+</div>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- intro -->
+
+<div class="intro">
+    <div class="columnLeft">
+        <p><strong>Problem #1 - Information Management</strong></p>
+        <p><i>"On-farm conservation practices, so far, lack the approaches, guidelines, methods and tools that would assist farmers both in deriving livelihood benefits and in playing their ‘custodian’ role more effectively and efficiently."</i></p>
+        <p><strong>Problem #2 - Information Exchange</strong></p>
+        <p><i>"Documenting on farm crop diversity so that we know what is being currently grown, how, by whom, for what purpose and how it is being threatened, represents an urgent and essential task for guiding the development of sound national conservation strategies based on the integration of ex situ and in situ/on-farm conservation methods."</i></p>
+        <div class="quoteCitation">&mdash;Bioversity International, <a href="http://www.bioversityinternational.org/research/conservation/on_farm_conservation.html">On Farm Conservation</a></div>
+
+        <p>These are two major problems that need to be solved. They cannot be solved only through the use of technology. We shouldn&rsquo;t think as technology as the &ldquo;silver bullet&rdquo; that will fix all of our problems. There are other major political, cultural and geographical concerns that also need to be tackled before we can mark these issues as being fixed.</p>
+
+    </div>
+    <div class="columnRight" style="width:401px;">
+        <p>We need to analyze the current situation of farmers, and understand their needs. We need to constantly put ourselves in their shoes, we need to virtually become farmers ourselves.</p>
+        <p>Great entrepreneurs build startups to fix problems that they encounter in their everyday life. They are successful because they fully understand the issue at hand - they&rsquo;re the first ones experiencing it.</p>
+        <p>For the case of on-farm conservation, we can&rsquo;t experience the issue at hand because we&rsquo;re not farmers. We&rsquo;re scientists, sitting at a desk, drinking coffee. We don&rsquo;t fully understand the stress that each day goes through their lives - struggling simply because it hasn&rsquo;t rained for a while.&nbsp;</p>
+        <p>So before we start thinking about how a piece of software can make their lives better, we need to get inside their lives, meet them face-to-face, interview them, and talk to them about their daily farming issues.&nbsp;</p>
+        <p>The truth is that software can still play a major role in making the farmers lives better, and allow them to exchange information easier - and that&rsquo;s the whole point.</p>
+        
+
+    </div>
+    <div class="endOfColumns"></div>
+</div>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- standing on concrete -->
+
+<div class="chapter">
+    <div class="chapterHeader"><span>Standing on Concrete</span></div>
+
+    <div style="width:100px; height:6px;"></div>
+
+    <div class="columnLeft">
+        <p>We'll start with an in-depth example &mdash; designing the control system for a <b>simple car simulation</b>. Our goal is to write a set of rules that allows the car to navigate roads, such as the one to the right.</p>
+    </div>
+    <div class="columnRight">
+        <div class="tangle" style="margin-top:-30px;">
+            <div class="LadderRoad" data-showcar="1" data-var="sweptVariable arcDegrees turningDegrees timeIndex"></div>
+        </div>
+    </div>
+    <div class="endOfColumns"></div>
+
+    <div class="columnLeft">
+        <p>What inputs does our system have?  Let's say that our car has a very simple sensor which can only detect three states:  the car is on the road, left of the road, or right of the road.</p>
+        <p>How do we design the rules for the car to follow?  We don't understand this system well enough to predict its behavior, so we need to <i>prototype</i>.  We start with the <i>simplest possible design</i>, and thoroughly explore it.  As we develop a feel for how it works, we'll get ideas for improvements.  We try an idea, explore again, and keep iterating.  Our design and our intuition should grow side-by-side.</p>
+    </div>
+    <div class="columnRight">
+        <div class="tangle">
+            <div style="margin-top:-15px;" class="LadderSensors"></div>
+        </div>
+    </div>
+    <div class="endOfColumns"></div>
+
+    <div class="columnLeft">
+        <p>The simplest possible rule here might be to turn right when off-road to the left, and turn left when off-road to the right.</p>
+    </div>
+    <div class="columnRight">
+        <div class="tangle">
+            <div style="margin-top:-34px;" class="LadderSensors" data-showresponse="1"></div>
+        </div>
+    </div>
+    <div class="endOfColumns"></div>
+
+    <div style="width:100px; height:20px;"></div>
+
+    <div class="columnLeft">
+        <p>To the right is an algorithm which encodes this strategy.</p>
+    </div>
+    <div class="columnRight">
+        <div class="tangle">
+            <div class="algorithm">
+                <div class="algorithmHeader">At each step:</div>
+                <div class="algorithmLine">Move forward 1 pixel.</div>
+                <div class="algorithmLine">If left of the road, turn right by <span data-var="turningDegrees" data-format="%.0f">&deg;</span>.</div>
+                <div class="algorithmLine">If right of the road, turn left by <span data-var="turningDegrees" data-format="%.0f">&deg;</span>.</div>
+            </div>
+        </div>
+    </div>
+    <div class="endOfColumns"></div>
+
+    <div style="width:100px; height:8px;"></div>
+    
+    <div class="columnLeft">
+        <p style="margin-top:20px;"><strong><span class="ifMouse">Click</span> <span class="ifTouch">Tap</span> to the right</strong> to find out how this algorithm behaves.</p>
+        <p>I suspect we all know someone whose driving is accurately modeled by this algorithm.</p>
+    </div>
+    <div class="columnRight">
+        <div class="tangle">
+            <div class="LadderRoad" data-showcar="1" data-var="sweptVariable arcDegrees turningDegrees timeIndex"></div>
+            <div class="LadderAnimator" data-var="timeIndex"></div>
+        </div>
+    </div>
+    <div class="endOfColumns"></div>
+
+</div>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- controlling time -->
+
+<div class="chapter">
+    <div class="chapterHeader"><span>Controlling Time</span></div>
+
+    <div class="columnLeft">
+        <p>Above, we watched the system evolve in real time.  A realtime view is useful for getting a direct, visceral sense of a system's behavior, especially for systems that are meant to be experienced by humans, such as visual effects.</p>
+        <p>However, real time is also quite limiting.  Imagine a film editor who has to watch the entire film from the beginning with every edit, and cannot even pause or rewind.  That would be absurd.  Yet, most of our interactive systems are designed in this fashion.</p>
+        <p>To understand a system, we must be able to explore it.  To explore, we must be able to move freely, under our own control.</p>
+    </div>
+    <div class="endOfColumns"></div>
+        
+    <div class="columnLeft">
+        <p><strong><span class="ifMouse">Mouse over</span> <span class="ifTouch">Drag</span> the slider at the right</strong> to control time explicitly.  Notice that we can easily simulate realtime playback simply by <span class="ifMouse">moving the mouse over</span> <span class="ifTouch">dragging</span> the slider at a steady rate.  But we also have the ability to quickly skim over it, or stop at interesting events and examine them carefully, or quickly jump between interesting events and compare them.</p>
+        <p>A designer needs direct, interactive control over the independent variables of the system.  We must not be slaves to real time.</p>
+    </div>
+    <div class="columnRight">
+        <div class="tangle">
+            <div class="algorithm">
+                <div class="algorithmHeader">At each step:
+                    <div style="display:inline-block; position:relative; top:-19px; left:9px;" 
+                        class="Slider" data-var="timeIndex lockedTimeIndex" data-width="280" data-min="0" data-max="560" data-format="step %d"></div>
+                </div>
+                <div class="algorithmLine">Move forward 1 pixel.</div>
+                <div class="algorithmLine">If left of the road, turn right by <span data-var="turningDegrees" data-format="%.0f">&deg;</span>.</div>
+                <div class="algorithmLine">If right of the road, turn left by <span data-var="turningDegrees" data-format="%.0f">&deg;</span>.</div>
+            </div>
+            <div class="LadderRoad" data-showcar="1" data-var="sweptVariable arcDegrees turningDegrees timeIndex"></div>
+        </div>
+    </div>
+    <div class="endOfColumns"></div>
+
+</div>
+
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- back matter -->
+
+<div class="backMatter">
+<div class="separator"></div>
+
+<div class="chapter">
+
+    <div class="columnLeft">
+        <p>This work is part of the <a href="http://worrydream.com/KillMath/">Kill Math</a> project, which is dedicated to enabling people to work with quantitative systems using concrete representations and intuition-guided exploration.  For another example of interactive control and visual abstraction, see
+        <a href="http://vimeo.com/23839605/">Interactive Exploration of a Dynamical System</a>.</p>
+        
+        <p>The keep-the-car-on-the-road algorithm is a favorite example of <a href="http://www.vpri.org/html/people/founders.htm">Alan Kay</a> when demonstrating <a href="http://www.squeakland.org/">eToys</a>.  I got the idea to use it after watching Alan's recent talk on <a href="http://tele-task.de/archive/video/flash/14029/">Programming and Scaling</a>.</p>
+    </div>
+    <div class="columnRight">
+        <p>Huge thanks to
+            <a href="http://osteele.com/">Oliver Steele</a>,
+            <a href="http://levitylab.com/cog/">Chaim Gingold</a>,
+            <a href="http://craigmod.com/">Craig Mod</a>, and 
+            <a href="http://www.davidhellman.net/">David Hellman</a>
+            for their painfully-valuable suggestions and discussions about this essay.</p>
+        <p>Extra thanks to Oliver Steele for his comments on an <a href="http://worrydream.com/SimulationAsAPracticalTool/">earlier essay</a> of mine, where I was just starting to think about these things. His thoughts on abstraction and multiple representations have been poking at my brain for the last two years, and were a primary inspiration for the work here.</p>
+        <p style="margin-left:-2px;"><a href="https://twitter.com/share?text=Up%20and%20Down%20the%20Ladder%20of%20Abstraction&url=http%3A%2F%2Fworrydream.com%2FLadderOfAbstraction&via=worrydream"></a></p>
+    </div>
+    <div class="endOfColumns"></div>
+
+</div>
+
+</div><!-- class="backMatter" -->
+
+
+</body></html>
