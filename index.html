@@ -29,11 +29,26 @@ body {
   height: 239px;
   top: 0px;
 
-  background-color: #d6f1ff;
-  background-image: url(grass.png);
+  background-image: url(grass.png), linear-gradient(bottom, rgb(247,247,247) 13%, rgb(214,241,255) 50%);
+  background-image: url(grass.png), -o-linear-gradient(bottom, rgb(247,247,247) 13%, rgb(214,241,255) 50%);
+  background-image: url(grass.png), -moz-linear-gradient(bottom, rgb(247,247,247) 13%, rgb(214,241,255) 50%);
+  background-image: url(grass.png), -webkit-linear-gradient(bottom, rgb(247,247,247) 13%, rgb(214,241,255) 50%);
+  background-image: url(grass.png), -ms-linear-gradient(bottom, rgb(247,247,247) 13%, rgb(214,241,255) 50%);
+
+  background-image: url(grass.png), -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.13, rgb(247,247,247)),
+    color-stop(0.5, rgb(214,241,255))
+  );
+  
+
   background-position: bottom;
-  background-size:200px;
   background-repeat: repeat-x;
+  /*background-color: #d6f1ff;
+  background-size:200px;
+  */
   
 -webkit-box-shadow: 0px -4px 30px rgba(50, 50, 50, 0.72);
 -moz-box-shadow:    0px -4px 30px rgba(50, 50, 50, 0.72);
